@@ -1,0 +1,91 @@
+.payment-success-container {
+  width: 70%;
+  margin: auto;
+  margin-top: 15vh;
+  font-family: "GTW_Regular";
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 2rem;
+  color: #717171;
+}
+.payment-success-container .payment-success-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+.payment-success-container .payment-success-header .payment-success-check-icon {
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5rem;
+}
+.payment-success-container .payment-success-header .payment-success-title {
+  color: #5ab453;
+  font-family: "GTW_Medium";
+  font-size: 2.5rem;
+  margin: 0;
+}
+.payment-success-container .thank-you-text {
+  color: #3d3f55;
+}
+.payment-success-container p {
+  margin: 2.5rem 0;
+}
+.payment-success-container .support-link {
+  color: #5ab453;
+  text-decoration: none;
+}
+.payment-success-container .support-link:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 1500px) {
+  .payment-success-container {
+    font-size: 1.4rem;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .payment-success-container {
+    font-size: 1.2rem;
+    width: 85%;
+  }
+  .payment-success-container .payment-success-header {
+    margin-bottom: 2rem;
+  }
+  .payment-success-container .payment-success-header .payment-success-check-icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-right: 0.3rem;
+  }
+  .payment-success-container .payment-success-header .payment-success-title {
+    font-size: 1.8rem;
+  }
+  .payment-success-container p {
+    margin: 2rem 0;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .payment-success-container {
+    font-size: 1.2rem;
+    width: 95%;
+    margin-top: 10vh;
+  }
+  .payment-success-container .payment-success-header {
+    margin-bottom: 2rem;
+  }
+  .payment-success-container .payment-success-header .payment-success-check-icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-right: 0.3rem;
+  }
+  .payment-success-container .payment-success-header .payment-success-title {
+    font-size: 1.8rem;
+  }
+  .payment-success-container p {
+    margin: 2rem 0;
+  }
+}/*# sourceMappingURL=PaymentSuccessful.pages.css.map */

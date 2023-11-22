@@ -1,0 +1,29 @@
+@font-face {
+	font-family: 'GTW_Regular';
+	src: url('./Assets/Fonts/GTWalsheimPro-Regular.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GTW_Bold';
+	src: url('./Assets/Fonts/GTWalsheimPro-Bold.woff2') format('woff2');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GTW_Medium';
+	src: url('./Assets/Fonts/GTWalsheimPro-Medium.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	min-height: 100vh;
+	font-family: 'GTW_Regular', sans-serif;
+	overflow-x: hidden;
+}

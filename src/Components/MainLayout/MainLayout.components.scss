@@ -1,0 +1,33 @@
+.main {
+	background: linear-gradient(to right, #ed93bf, #72b4e3, #6f5feb);
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.main-white-background {
+		width: 95%;
+		background-color: #fff;
+		border-radius: 1.5rem;
+		min-height: 95vh;
+		margin-top: 2.5vh;
+		margin-bottom: 2.5vh;
+
+		.padding {
+			width: 90%;
+			margin: auto;
+			margin-top: 3vh;
+		}
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.main {
+		.main-white-background {
+			min-height: 97vh;
+			margin-top: 2.5vh;
+			margin-bottom: 2.5vh;
+		}
+	}
+}

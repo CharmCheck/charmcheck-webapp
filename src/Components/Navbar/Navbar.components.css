@@ -1,0 +1,78 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.navbar .navbar-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar .navbar-logo .navbar-logo-text {
+  font-family: "GTW_Medium";
+  font-size: 1.4rem;
+  color: #3d3f55;
+}
+.navbar .navbar-logo .navbar-logo-sparkle {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.navbar .navbar-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar .navbar-links .navbar-links-text {
+  font-family: "GTW_Regular";
+  font-size: 1.2rem;
+  color: #5d6083;
+  text-decoration: none;
+}
+.navbar .navbar-links .navbar-links-text:hover {
+  color: #3d3f55;
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 500px) {
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .navbar .navbar-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .navbar .navbar-logo .navbar-logo-text {
+    font-family: "GTW_Medium";
+    font-size: 1.2rem;
+    color: #3d3f55;
+  }
+  .navbar .navbar-logo .navbar-logo-sparkle {
+    width: 2rem;
+    height: 2rem;
+  }
+  .navbar .navbar-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .navbar .navbar-links .navbar-links-text {
+    font-family: "GTW_Regular";
+    font-size: 1rem;
+    color: #5d6083;
+    text-decoration: none;
+  }
+  .navbar .navbar-links .navbar-links-text:hover {
+    color: #3d3f55;
+    text-decoration: underline;
+  }
+}/*# sourceMappingURL=Navbar.components.css.map */

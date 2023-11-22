@@ -1,0 +1,36 @@
+.submit-details-page {
+  width: 70%;
+  margin: auto;
+  margin-top: 10vh;
+}
+.submit-details-page .submit-details-footer {
+  text-align: center;
+  margin-top: 2rem;
+  color: #5d6083;
+  margin-bottom: 2rem;
+}
+.submit-details-page .submit-details-footer .policy-links {
+  margin-top: 1rem;
+  color: #5d6083;
+}
+.submit-details-page .submit-details-footer .policy-links a {
+  font-family: "GTW_Regular";
+  font-size: 1rem;
+  color: #5d6083;
+  text-decoration: none;
+}
+.submit-details-page .submit-details-footer .policy-links a:hover {
+  color: #3d3f55;
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 1500px) {
+  .submit-details-page {
+    width: 60%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .submit-details-page {
+    width: 80%;
+  }
+}/*# sourceMappingURL=SubmitDetailsForReview.pages.css.map */

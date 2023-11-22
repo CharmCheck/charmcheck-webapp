@@ -1,0 +1,90 @@
+.navbar {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+
+	.navbar-logo {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+
+		.navbar-logo-text {
+			font-family: 'GTW_Medium';
+			font-size: 1.4rem;
+			color: #3d3f55;
+		}
+
+		.navbar-logo-sparkle {
+			width: 2.5rem;
+			height: 2.5rem;
+		}
+	}
+
+	.navbar-links {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+
+		.navbar-links-text {
+			font-family: 'GTW_Regular';
+			font-size: 1.2rem;
+			color: #5d6083;
+			text-decoration: none;
+
+			&:hover {
+				color: #3d3f55;
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.navbar {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+
+		.navbar-logo {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+
+			.navbar-logo-text {
+				font-family: 'GTW_Medium';
+				font-size: 1.2rem;
+				color: #3d3f55;
+			}
+
+			.navbar-logo-sparkle {
+				width: 2rem;
+				height: 2rem;
+			}
+		}
+
+		.navbar-links {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+
+			.navbar-links-text {
+				font-family: 'GTW_Regular';
+				font-size: 1rem;
+				color: #5d6083;
+				text-decoration: none;
+
+				&:hover {
+					color: #3d3f55;
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}

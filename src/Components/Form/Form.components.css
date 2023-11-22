@@ -1,0 +1,62 @@
+.user-details-form {
+  background-color: #f9f9f9;
+  border: 1px solid #d6d6d6;
+  padding: 1.2rem 2.5rem;
+  border-radius: 12px;
+  width: 50%;
+  margin: auto;
+}
+.user-details-form .form-title {
+  font-family: "GTW_Regular";
+  font-size: 1.5rem;
+  color: #333233;
+  margin-bottom: 1.8rem;
+}
+.user-details-form .form-item {
+  margin-bottom: 2rem;
+}
+.user-details-form .form-item .label {
+  font-family: "GTW_Regular";
+  font-size: 1rem;
+  color: #333233;
+  line-height: 1.5rem;
+}
+.user-details-form .form-item .input-email {
+  margin-top: 0.4rem;
+  width: 70%;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-family: "GTW_Regular";
+  font-size: 1rem;
+  color: #333233;
+  outline: none;
+  border: 2px solid #7b66fb;
+}
+.user-details-form .form-item .image-upload-wrapper .input-images-hidden {
+  display: none;
+}
+.user-details-form .form-item .image-upload-wrapper .custom-file-upload {
+  border-radius: 8px;
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border: 2px solid #7b66fb;
+  text-align: center;
+  cursor: pointer;
+}
+.user-details-form .form-item .image-upload-wrapper .custom-file-upload .upload-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.user-details-form .form-item .image-upload-wrapper .custom-file-upload img {
+  width: 30px;
+  height: 30px;
+}
+.user-details-form .form-item .image-upload-wrapper .custom-file-upload span {
+  margin-top: 10px;
+  color: #a1a1a1;
+}/*# sourceMappingURL=Form.components.css.map */
