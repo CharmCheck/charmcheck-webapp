@@ -27,3 +27,8 @@ body {
 	font-family: 'GTW_Regular', sans-serif;
 	overflow-x: hidden;
 }
+
+a {
+	text-decoration: none;
+	color: inherit;
+}

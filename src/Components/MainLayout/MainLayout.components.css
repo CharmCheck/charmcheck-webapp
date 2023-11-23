@@ -15,15 +15,23 @@
   margin-bottom: 2.5vh;
 }
 .main .main-white-background .padding {
-  width: 90%;
+  width: 70%;
   margin: auto;
   margin-top: 3vh;
 }
 
+@media only screen and (max-width: 1700px) {
+  .main .main-white-background .padding {
+    width: 90%;
+  }
+}
 @media only screen and (max-width: 500px) {
   .main .main-white-background {
     min-height: 97vh;
     margin-top: 2.5vh;
     margin-bottom: 2.5vh;
+  }
+  .main .main-white-background .padding {
+    width: 90%;
   }
 }/*# sourceMappingURL=MainLayout.components.css.map */

@@ -6,6 +6,7 @@ import SubmitDetailsForReviewPage from './Pages/SubmitDetailsForReview/SubmitDet
 import PaymentSuccessfulPage from './Pages/PaymentSuccessful/PaymentSuccessful.pages';
 import ReviewPage from './Pages/ReviewPage/ReviewPage.pages';
 import ErrorPage from './Pages/ErrorPage/ErrorPage.pages';
+import HomePage from './Pages/HomePage/HomePage.pages';
 
 function App() {
 	return (
@@ -13,6 +14,7 @@ function App() {
 			<MainLayout>
 				<Navbar />
 				<Routes>
+					<Route path="/" element={<HomePage />} />
 					<Route path="/new" element={<SubmitDetailsForReviewPage />} />
 					<Route path="/success" element={<PaymentSuccessfulPage />} />
 					<Route path="/review/:reviewid" element={<ReviewPage />} />
