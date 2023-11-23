@@ -1,7 +1,12 @@
 .submit-details-page {
-	width: 70%;
 	margin: auto;
 	margin-top: 10vh;
+	width: 100%;
+
+	.submit-details-form-container {
+		width: 50%;
+		margin: auto;
+	}
 
 	.submit-details-footer {
 		text-align: center;
@@ -30,12 +35,85 @@
 
 @media only screen and (max-width: 1500px) {
 	.submit-details-page {
-		width: 60%;
+		width: 50%;
+		margin-top: 8vh;
+
+		.submit-details-form-container {
+			width: 100%;
+		}
+
+		.submit-details-footer {
+			font-family: 'GTW_Regular', sans-serif;
+			font-size: 1.2rem;
+			line-height: 1.5rem;
+
+			.policy-links {
+				margin-top: 2rem;
+				font-size: 1rem;
+			}
+		}
 	}
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1200px) {
 	.submit-details-page {
-		width: 80%;
+		width: 70%;
+		margin-top: 8vh;
+
+		.submit-details-form-container {
+			width: 100%;
+		}
+
+		.submit-details-footer {
+			font-family: 'GTW_Regular', sans-serif;
+			font-size: 1.1rem;
+			line-height: 1.5rem;
+
+			.policy-links {
+				margin-top: 2rem;
+				font-size: 0.9rem;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.submit-details-page {
+		width: 85%;
+
+		.submit-details-form-container {
+			width: 100%;
+		}
+
+		.submit-details-footer {
+			font-family: 'GTW_Regular', sans-serif;
+			font-size: 1rem;
+			line-height: 1.5rem;
+
+			.policy-links {
+				margin-top: 2rem;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	.submit-details-page {
+		width: 100%;
+		margin-top: 8vh;
+
+		.submit-details-form-container {
+			width: 100%;
+		}
+
+		.submit-details-footer {
+			font-family: 'GTW_Regular', sans-serif;
+			font-size: 1rem;
+			line-height: 1.5rem;
+
+			.policy-links {
+				margin-top: 2rem;
+			}
+		}
 	}
 }

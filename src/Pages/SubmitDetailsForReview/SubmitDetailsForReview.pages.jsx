@@ -4,7 +4,9 @@ import Form from '../../Components/Form/Form.components';
 const SubmitDetailsForReviewPage = () => {
 	return (
 		<div className="submit-details-page">
-			<Form />
+			<div className="submit-details-form-container">
+				<Form />
+			</div>
 			<div className="submit-details-footer">
 				<p className="privacy-statement">
 					Your data is stored safely and won't be used for any other purposes

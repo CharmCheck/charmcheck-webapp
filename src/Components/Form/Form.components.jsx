@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { captureException } from '@sentry/react';
 
 import Cross from '../../Assets/Images/Cross.svg';
 import Upload from '../../Assets/Images/Upload.svg';
-import Arrow from '../../Assets/Images/Arrow.svg';
+// import Arrow from '../../Assets/Images/Arrow.svg';
 
 import './Form.components.css';
 
@@ -17,9 +17,18 @@ const Form = () => {
 	const handleFilePick = (index, e) => {
 		try {
 			// make sure the selected file is less than 1 MB
-			if (e.target.files[0].size > 1024 * 1024) {
+			if (
+				e.target.files[0].size >
+				Number(process.env.REACT_APP_ALLOWED_INDIVIDUAL_IMAGE_SIZE_IN_MB) *
+					1024 *
+					1024
+			) {
 				imageFiles[index] = '';
-				toast.error('Image size should be less than 1 MB');
+				toast.error(
+					`Image size should be less than ${Number(
+						process.env.REACT_APP_ALLOWED_INDIVIDUAL_IMAGE_SIZE_IN_MB
+					)} MB`
+				);
 				return;
 			}
 
@@ -29,6 +38,12 @@ const Form = () => {
 				toast.error('Please select an image file');
 				return;
 			}
+
+			setImageFiles((prevImageFiles) => {
+				const newImageFiles = [...prevImageFiles];
+				newImageFiles[index] = e.target.files[0];
+				return newImageFiles;
+			});
 
 			// convert the selected file to base64
 			const reader = new FileReader();
@@ -49,21 +64,27 @@ const Form = () => {
 					newImageBase64s[index] = base64String;
 					return newImageBase64s;
 				});
-
-				setImageFiles((prevImageFiles) => {
-					const newImageFiles = [...prevImageFiles];
-					newImageFiles[index] = e.target.files[0];
-					return newImageFiles;
-				});
 			};
 		} catch (err) {
 			captureException(err, {
 				extra: {
 					email,
 					index,
-					file: e.target.files[0],
+					file: imageFiles[index],
 					errorId: 'ImageUploadError',
 				},
+			});
+
+			setImageFiles((prevImageFiles) => {
+				const newImageFiles = [...prevImageFiles];
+				newImageFiles[index] = '';
+				return newImageFiles;
+			});
+
+			setImageBase64s((prevImageBase64s) => {
+				const newImageBase64s = [...prevImageBase64s];
+				newImageBase64s[index] = '';
+				return newImageBase64s;
 			});
 
 			toast.error(
@@ -184,7 +205,13 @@ const Form = () => {
 	};
 
 	return (
-		<div className="user-details-form">
+		<div
+			className={
+				isSubmitting
+					? 'user-details-form user-details-form-disabled'
+					: 'user-details-form'
+			}
+		>
 			<p className="form-title">Submit Details</p>
 			<div className="form-item form-item-email">
 				<label htmlFor="email" className="label label-email">
@@ -205,44 +232,80 @@ const Form = () => {
 					Upload Profile Screenshots - Maintain the order in which they appear
 					on your profile
 				</label>
-				{[0, 1, 2, 3, 4].map((index) => (
-					<div className="image-upload-wrapper" key={index}>
-						{imageBase64s[index] ? (
-							<img
-								src={imageBase64s[index]}
-								alt="uploaded"
-								className="uploaded-image"
-								width="100px"
-								height="100px"
-							/>
-						) : (
-							<div>
-								<label for="fileInput" class="custom-file-upload">
-									<div class="upload-icon">
-										<img src={Upload} alt="Upload Icon" />
-										<span>Upload Image</span>
+				<div className="images-container">
+					{[0, 1, 2, 3, 4].map((index) => (
+						<React.Fragment key={index}>
+							{imageBase64s[index] ? (
+								<div className="uploaded-image-container">
+									<div
+										className="cross-icon-container"
+										onClick={() => {
+											setImageBase64s((prevImageBase64s) => {
+												const newImageBase64s = [...prevImageBase64s];
+												newImageBase64s[index] = '';
+												return newImageBase64s;
+											});
+											setImageFiles((prevImageFiles) => {
+												const newImageFiles = [...prevImageFiles];
+												newImageFiles[index] = '';
+												return newImageFiles;
+											});
+										}}
+									>
+										<img src={Cross} alt="cross" className="cross-image" />
+									</div>
+									<img
+										src={imageBase64s[index]}
+										alt="uploaded"
+										className="uploaded-image"
+										onClick={() => {
+											const image = new Image();
+											image.src = imageBase64s[index];
+
+											const w = window.open('');
+
+											w.document.write(image.outerHTML);
+
+											w.document.close();
+										}}
+									/>
+								</div>
+							) : (
+								<label htmlFor="fileInput" className="custom-file-upload-input">
+									<div className="upload-icon-and-text-container">
+										<img
+											src={Upload}
+											alt="Upload Icon"
+											className="upload-icon-image"
+										/>
+										<span className="upload-icon-text">Upload Image</span>
 									</div>
 									<input
 										type="file"
 										name="images"
 										id={'fileInput'}
-										className="input input-images-hidden"
+										className="input input-image-hidden"
 										accept=".jpg,.jpeg,.png"
 										onChange={(e) => handleFilePick(index, e)}
-										value={imageFiles[index]}
+										value={''}
 									/>
 								</label>
-							</div>
-						)}
-					</div>
-				))}
+							)}
+						</React.Fragment>
+					))}
+				</div>
 			</div>
 			<div className="form-item form-item-submit">
 				{isSubmitting ? (
-					<button className="button button-submit">Loading</button>
+					<button className="button-submit button-submit-disabled">
+						<span className="submit-button-text">Please Wait ...</span>
+					</button>
 				) : (
-					<button className="button button-submit" onClick={handleFormSubmit}>
-						Submit
+					<button
+						className="button-submit button-submit-enabled"
+						onClick={handleFormSubmit}
+					>
+						<span className="submit-button-text">Proceed to payment ($1)</span>
 					</button>
 				)}
 			</div>

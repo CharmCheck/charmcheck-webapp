@@ -41,7 +41,7 @@
   border-radius: 8px;
   border: 2px solid #7b66fb;
   cursor: pointer;
-  transition: 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   margin-right: 1rem;
   margin-bottom: 1rem;
 }

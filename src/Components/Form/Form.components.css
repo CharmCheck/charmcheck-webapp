@@ -1,10 +1,8 @@
 .user-details-form {
   background-color: #f9f9f9;
   border: 1px solid #d6d6d6;
-  padding: 1.2rem 2.5rem;
+  padding: 1.2rem 2.4rem;
   border-radius: 12px;
-  width: 50%;
-  margin: auto;
 }
 .user-details-form .form-title {
   font-family: "GTW_Regular";
@@ -14,6 +12,8 @@
 }
 .user-details-form .form-item {
   margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 .user-details-form .form-item .label {
   font-family: "GTW_Regular";
@@ -32,10 +32,47 @@
   outline: none;
   border: 2px solid #7b66fb;
 }
-.user-details-form .form-item .image-upload-wrapper .input-images-hidden {
-  display: none;
+.user-details-form .form-item .images-container {
+  margin-top: 0.4rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
 }
-.user-details-form .form-item .image-upload-wrapper .custom-file-upload {
+.user-details-form .form-item .images-container .uploaded-image-container {
+  position: relative;
+  display: inline-block;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.user-details-form .form-item .images-container .uploaded-image-container .cross-icon-container {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: #7b66fb;
+  border: 1px solid #7b66fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -1px;
+  right: 0px;
+  cursor: pointer;
+  z-index: 10000000;
+}
+.user-details-form .form-item .images-container .uploaded-image-container .uploaded-image {
+  width: 81px;
+  height: 81px;
+  border-radius: 6px;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.user-details-form .form-item .images-container .uploaded-image-container .uploaded-image:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+.user-details-form .form-item .images-container .custom-file-upload-input {
   border-radius: 8px;
   display: inline-block;
   position: relative;
@@ -44,19 +81,70 @@
   border: 2px solid #7b66fb;
   text-align: center;
   cursor: pointer;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
 }
-.user-details-form .form-item .image-upload-wrapper .custom-file-upload .upload-icon {
+.user-details-form .form-item .images-container .custom-file-upload-input .upload-icon-and-text-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
 }
-.user-details-form .form-item .image-upload-wrapper .custom-file-upload img {
-  width: 30px;
-  height: 30px;
+.user-details-form .form-item .images-container .custom-file-upload-input .upload-icon-and-text-container img {
+  width: 1.5rem;
+  height: 1.5rem;
 }
-.user-details-form .form-item .image-upload-wrapper .custom-file-upload span {
-  margin-top: 10px;
+.user-details-form .form-item .images-container .custom-file-upload-input .upload-icon-and-text-container span {
   color: #a1a1a1;
+  font-size: 1rem;
+}
+.user-details-form .form-item .images-container .custom-file-upload-input .input-image-hidden {
+  display: none;
+}
+.user-details-form .form-item .button-submit {
+  outline: none;
+  background-color: #7b66fb;
+  padding: 0.9rem 1.8rem;
+  border-radius: 2rem;
+  border: none;
+}
+.user-details-form .form-item .button-submit-disabled {
+  cursor: not-allowed;
+  background-color: #d6d6d6;
+}
+.user-details-form .form-item .button-submit-enabled {
+  transition: 0.2s ease-in-out;
+}
+.user-details-form .form-item .button-submit-enabled:hover {
+  cursor: pointer;
+  scale: 0.98;
+}
+.user-details-form .form-item .button-submit-enabled:active {
+  scale: 0.96;
+}
+.user-details-form .form-item .submit-button-text {
+  color: #fff;
+  font-family: "GTW_Regular";
+  font-size: 1rem;
+}
+
+.user-details-form-disabled {
+  pointer-events: none;
+}
+
+@media only screen and (max-width: 1200px) {
+  .user-details-form {
+    padding: 1rem 2rem;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .user-details-form {
+    padding: 0.9rem 1.8rem;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .user-details-form {
+    padding: 0.8rem 1.6rem;
+  }
 }/*# sourceMappingURL=Form.components.css.map */
