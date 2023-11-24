@@ -46,7 +46,6 @@ const Form = () => {
 				return newImageFiles;
 			});
 
-			toast('Compressing image');
 			new Compressor(currentFile, {
 				quality:
 					currentFile.size >=
