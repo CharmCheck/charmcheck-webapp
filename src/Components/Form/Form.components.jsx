@@ -46,6 +46,7 @@ const Form = () => {
 				return newImageFiles;
 			});
 
+			toast('Compressing image');
 			new Compressor(currentFile, {
 				quality:
 					currentFile.size >=
@@ -57,6 +58,38 @@ const Form = () => {
 						: 0.6,
 
 				success(imageFile) {
+					if (
+						imageFile.size >
+						Number(
+							process.env.REACT_APP_ALLOWED_IMAGE_SIZE_AFTER_COMPRESSION_IN_MB
+						) *
+							1024 *
+							1024
+					) {
+						setImageFiles((prevImageFiles) => {
+							const newImageFiles = [...prevImageFiles];
+							newImageFiles[index] = '';
+							return newImageFiles;
+						});
+
+						setImageBase64s((prevImageBase64s) => {
+							const newImageBase64s = [...prevImageBase64s];
+							newImageBase64s[index] = '';
+							return newImageBase64s;
+						});
+
+						toast.error(
+							`We were unable to compress this image properly. Please compress the image to less than ${Math.floor(
+								Number(
+									process.env
+										.REACT_APP_ALLOWED_IMAGE_SIZE_AFTER_COMPRESSION_IN_MB
+								)
+							)}MB before uploading.`
+						);
+
+						return;
+					}
+
 					const reader = new FileReader();
 					reader.readAsDataURL(imageFile);
 					reader.onloadend = () => {
