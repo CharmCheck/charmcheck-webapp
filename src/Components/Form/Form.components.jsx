@@ -376,7 +376,7 @@ const Form = () => {
 						className="button-submit button-submit-enabled"
 						onClick={handleFormSubmit}
 					>
-						<span className="submit-button-text">Proceed to payment ($1)</span>
+						<span className="submit-button-text">Proceed to payment ($2)</span>
 					</button>
 				)}
 			</div>
