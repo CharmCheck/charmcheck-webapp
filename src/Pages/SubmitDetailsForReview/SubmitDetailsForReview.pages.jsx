@@ -12,7 +12,7 @@ const SubmitDetailsForReviewPage = () => {
 					Your data is stored safely and won't be used for any other purposes
 					without your permission
 				</p>
-				<div className="policy-links">
+				{/* <div className="policy-links">
 					<a
 						href="/privacy-policy"
 						className="policy-link"
@@ -39,7 +39,7 @@ const SubmitDetailsForReviewPage = () => {
 					>
 						Refund Policy
 					</a>
-				</div>
+				</div> */}
 			</div>
 		</div>
 	);
