@@ -10,8 +10,10 @@ const PaymentSuccessfulPage = () => {
 			</div>
 			<p className="payment-success-text">
 				Your review is being generated. We'll email you the link when it's
-				ready. Sometimes, it takes up to 5 minutes to generate a review. Make sure
-				to check Spam/Promotions folder of your email.
+				ready. Sometimes, it takes up to 5 minutes to generate a review.
+				<br />
+				Sometimes the email from an unknown sender could go to the
+				Spam/Promotions box of your email. Make sure to check those as well.
 			</p>
 			<p className="support-text">
 				If you need any support or have any queries, you can reach out to us at{' '}
