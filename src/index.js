@@ -29,6 +29,7 @@ Sentry.init({
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<BrowserRouter>
+		{console.log(process.env.REACT_APP_BUILD_VERSION)}
 		<App />
 	</BrowserRouter>
 );
