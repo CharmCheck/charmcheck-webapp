@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { captureException } from '@sentry/react';
+import Compressor from 'compressorjs';
 
 import Cross from '../../Assets/Images/Cross.svg';
 import Upload from '../../Assets/Images/Upload.svg';
-// import Arrow from '../../Assets/Images/Arrow.svg';
 
 import './Form.components.css';
 
@@ -16,9 +16,10 @@ const Form = () => {
 
 	const handleFilePick = (index, e) => {
 		try {
-			// make sure the selected file is less than 1 MB
+			const currentFile = e.target.files[0];
+
 			if (
-				e.target.files[0].size >
+				currentFile.size >
 				Number(process.env.REACT_APP_ALLOWED_INDIVIDUAL_IMAGE_SIZE_IN_MB) *
 					1024 *
 					1024
@@ -33,7 +34,7 @@ const Form = () => {
 			}
 
 			// make sure the selected file is an image
-			if (!e.target.files[0].type.startsWith('image')) {
+			if (!currentFile.type.startsWith('image')) {
 				imageFiles[index] = '';
 				toast.error('Please select an image file');
 				return;
@@ -41,30 +42,69 @@ const Form = () => {
 
 			setImageFiles((prevImageFiles) => {
 				const newImageFiles = [...prevImageFiles];
-				newImageFiles[index] = e.target.files[0];
+				newImageFiles[index] = currentFile;
 				return newImageFiles;
 			});
 
-			// convert the selected file to base64
-			const reader = new FileReader();
-			reader.readAsDataURL(e.target.files[0]);
+			new Compressor(currentFile, {
+				quality:
+					currentFile.size >=
+					(Number(process.env.REACT_APP_ALLOWED_INDIVIDUAL_IMAGE_SIZE_IN_MB) -
+						1) *
+						1024 *
+						1024
+						? 0.4
+						: 0.6,
 
-			reader.onloadend = () => {
-				const base64String = reader.result;
+				success(imageFile) {
+					const reader = new FileReader();
+					reader.readAsDataURL(imageFile);
+					reader.onloadend = () => {
+						const base64String = reader.result;
+						// check if this image has already been uploaded
+						if (imageBase64s.includes(base64String)) {
+							imageFiles[index] = '';
+							toast.error('This image has already been uploaded');
+							return;
+						}
+						setImageBase64s((prevImageBase64s) => {
+							const newImageBase64s = [...prevImageBase64s];
+							newImageBase64s[index] = base64String;
+							return newImageBase64s;
+						});
+					};
+				},
 
-				// check if this image has already been uploaded
-				if (imageBase64s.includes(base64String)) {
-					imageFiles[index] = '';
-					toast.error('This image has already been uploaded');
+				error(err) {
+					// Dont throw the err because this process is async and if you throw the err it might be the case that the err is thrown after the catch block is executed. So, the catch block will not be able to catch the err.
+					captureException(err, {
+						extra: {
+							email,
+							index,
+							file: imageFiles[index],
+							errorId: 'ImageUploadError',
+						},
+					});
+
+					setImageFiles((prevImageFiles) => {
+						const newImageFiles = [...prevImageFiles];
+						newImageFiles[index] = '';
+						return newImageFiles;
+					});
+
+					setImageBase64s((prevImageBase64s) => {
+						const newImageBase64s = [...prevImageBase64s];
+						newImageBase64s[index] = '';
+						return newImageBase64s;
+					});
+
+					toast.error(
+						'Some error while selecting the image. Please refresh the page and try again.'
+					);
+
 					return;
-				}
-
-				setImageBase64s((prevImageBase64s) => {
-					const newImageBase64s = [...prevImageBase64s];
-					newImageBase64s[index] = base64String;
-					return newImageBase64s;
-				});
-			};
+				},
+			});
 		} catch (err) {
 			captureException(err, {
 				extra: {
