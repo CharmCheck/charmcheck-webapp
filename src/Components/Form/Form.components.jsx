@@ -180,9 +180,7 @@ const Form = () => {
 				throw new Error(JSON.stringify(submitDetailsResponseJson));
 			}
 
-			const reviewId = submitDetailsResponseJson.data.reviewId;
-
-			window.location.href = `https://charmcheck.lemonsqueezy.com/checkout/buy/83869d12-3177-4fad-b391-cece580ffc91?checkout[custom][reviewId]=${reviewId}&checkout[email]=${emailToSubmit}`;
+			window.location.href = submitDetailsResponseJson.data.paymentLink;
 		} catch (err) {
 			captureException(err, {
 				extra: {
