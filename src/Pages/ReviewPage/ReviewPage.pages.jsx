@@ -92,13 +92,13 @@ const ReviewPage = () => {
 		</div>
 	) : (
 		<div className="review-page">
-			<p className="section-title">Profile Images Reviewed</p>
+			<p className="section-title">Images Reviewed</p>
 			<div className="images-container">
 				{images.map((image, index) => {
 					return loadedImages === images.length ? (
 						<img
 							src={image}
-							alt={'Profile Image' + index + 1}
+							alt={'Image' + index + 1}
 							className="image"
 							key={index}
 							onClick={() => {
@@ -109,7 +109,7 @@ const ReviewPage = () => {
 						<img
 							src={image}
 							key={index}
-							alt={'Profile Image' + index + 1}
+							alt={'Image' + index + 1}
 							style={{ display: 'none' }}
 							onLoad={() => {
 								setLoadedImages((prevLoadedImages) => prevLoadedImages + 1);
@@ -121,7 +121,7 @@ const ReviewPage = () => {
 					<img src={Loader} alt="Loading..." className="loader-icon-small" />
 				)}
 			</div>
-			<p className="section-title">Profile Review</p>
+			<p className="section-title">Review</p>
 			<div className="review-section-text-container">{parse(review)}</div>
 		</div>
 	);
