@@ -299,8 +299,8 @@ const Form = () => {
 			</div>
 			<div className="form-item form-item-images">
 				<label htmlFor="images" className="label label-images">
-					Upload Profile Screenshots - Maintain the order in which they appear
-					on your profile
+					Upload Screenshots - Maintain the order in which they appear on your
+					profile
 				</label>
 				<div className="images-container">
 					{[0, 1, 2, 3, 4].map((index) => (
