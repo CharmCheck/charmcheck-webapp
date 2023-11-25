@@ -18,7 +18,7 @@ const HomePage = () => {
 				</h1>
 				<p className="homepage-subheading">
 					Worry not! For just $2, you can 10x your matches in seconds.
-					CharmCheck reviews your Tinder/Bumble/Hinge profile, photos, convos
+					CharmCheck AI reviews your Tinder/Bumble/Hinge profile, photos, convos
 					and gives you tips to make them better.
 				</p>
 				<div className="hero-cta-container">
