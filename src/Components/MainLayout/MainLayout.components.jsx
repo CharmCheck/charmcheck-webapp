@@ -23,6 +23,20 @@ const MainLayout = ({ children }) => {
 				pauseOnHover
 				theme="light"
 			/>
+			<div className="project-self-attribution-container">
+				<p className="project-self-attribution-text">
+					Made with ❤️ by{' '}
+					<a
+						href="
+						https://x.com/AdityaKG_"
+						target="_blank"
+						rel="noreferrer"
+						className="project-self-attribution-link"
+					>
+						Aditya Krishna
+					</a>
+				</p>
+			</div>
 		</div>
 	);
 };

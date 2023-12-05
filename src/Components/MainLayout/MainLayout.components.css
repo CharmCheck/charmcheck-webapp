@@ -19,6 +19,22 @@
   margin: auto;
   margin-top: 3vh;
 }
+.main .project-self-attribution-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #212121;
+  color: #fff;
+}
+.main .project-self-attribution-container .project-self-attribution-text {
+  padding: 0.4rem;
+  font-size: 0.8rem;
+  margin: 0;
+}
+.main .project-self-attribution-container .project-self-attribution-text .project-self-attribution-link {
+  color: #fff;
+  text-decoration: underline;
+}
 
 @media only screen and (max-width: 1700px) {
   .main .main-white-background .padding {
