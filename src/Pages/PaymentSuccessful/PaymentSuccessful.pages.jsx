@@ -6,11 +6,11 @@ const PaymentSuccessfulPage = () => {
 		<div className="payment-success-container">
 			<div className="payment-success-header">
 				<img src={Check} alt="Check" className="payment-success-check-icon" />
-				<p className="payment-success-title">Payment Successful</p>
+				<p className="payment-success-title">Submission Successful</p>
 			</div>
 			<p className="payment-success-text">
 				Your review is being generated. We'll email you the link when it's
-				ready. Sometimes, it takes up to 5 minutes to generate a review.
+				ready. Sometimes, it takes up to 2 minutes to generate a review.
 				<br />
 				Sometimes the email from an unknown sender could go to the
 				Spam/Promotions box of your email. Make sure to check those as well.

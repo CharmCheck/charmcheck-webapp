@@ -17,9 +17,9 @@ const HomePage = () => {
 					Not getting enough matches on your dating profile?
 				</h1>
 				<p className="homepage-subheading">
-					Worry not! For just $2, you can 10x your matches in seconds.
-					CharmCheck AI reviews your Tinder/Bumble/Hinge profile, photos, convos
-					and gives you tips to make them better.
+					Worry not! You can 10x your matches in seconds. CharmCheck AI reviews
+					your Tinder/Bumble/Hinge profile, photos, convos and gives you tips to
+					make them better.
 				</p>
 				<div className="hero-cta-container">
 					<button className="hero-cta" onClick={() => navigate('/new')}>
@@ -28,9 +28,7 @@ const HomePage = () => {
 					</button>
 					<div className="hero-cta-assurance-container">
 						<img src={Heart} alt="heart" className="hero-cta-assurance-heart" />
-						<spam className="hero-cta-assurance-text">
-							100% Satisfaction Guarantee
-						</spam>
+						<spam className="hero-cta-assurance-text">It's Totally Free</spam>
 					</div>
 				</div>
 			</main>

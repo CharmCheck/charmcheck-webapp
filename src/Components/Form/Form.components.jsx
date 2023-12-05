@@ -252,6 +252,10 @@ const Form = () => {
 				throw new Error(JSON.stringify(submitDetailsResponseJson));
 			}
 
+			alert(
+				"To make sure that you are a human, you'll be redirected to a payment page. You dont have to pay anything."
+			);
+
 			window.location.href = submitDetailsResponseJson.data.paymentLink;
 		} catch (err) {
 			captureException(err, {
@@ -375,7 +379,7 @@ const Form = () => {
 						className="button-submit button-submit-enabled"
 						onClick={handleFormSubmit}
 					>
-						<span className="submit-button-text">Proceed to payment ($2)</span>
+						<span className="submit-button-text">Generate my review</span>
 					</button>
 				)}
 			</div>
