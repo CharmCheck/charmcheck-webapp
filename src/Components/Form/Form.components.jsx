@@ -303,8 +303,7 @@ const Form = () => {
 			</div>
 			<div className="form-item form-item-images">
 				<label htmlFor="images" className="label label-images">
-					Upload Screenshots - Maintain the order in which they appear on your
-					profile
+					Upload Images - Screenshots of your profile, photos, convos, etc.
 				</label>
 				<div className="images-container">
 					{[0, 1, 2, 3, 4].map((index) => (
